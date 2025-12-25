@@ -1,0 +1,969 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Perfect Healing Therapy Home - Natural Holistic Wellness</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+    
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <!-- Tailwind Config -->
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              sage: {
+                50: '#f4f7f5',
+                100: '#e3ebe6',
+                200: '#c5d9cd',
+                300: '#9cbba9',
+                400: '#769a85',
+                500: '#5a7e6a', 
+                600: '#466453',
+                700: '#3a5144',
+                800: '#314239',
+                900: '#293730',
+              },
+              cream: {
+                50: '#fdfcf8',
+                100: '#fbf9f1',
+                200: '#f5f0e1',
+              },
+              peach: {
+                50: '#fff5f0',
+                100: '#fbebe4',
+                200: '#f7ddd2',
+              }
+            },
+            fontFamily: {
+              serif: ['"Cormorant Garamond"', 'serif'],
+              sans: ['"Lato"', 'sans-serif'],
+            },
+          },
+        },
+      }
+    </script>
+    
+    <style>
+      html {
+        scroll-behavior: smooth;
+        scroll-padding-top: 100px;
+      }
+      body {
+        background-color: #fdfcf8;
+        color: #466453;
+      }
+      .reveal {
+        opacity: 0;
+        transform: translateY(30px);
+        transition: all 1s ease-out;
+      }
+      .reveal.active {
+        opacity: 1;
+        transform: translateY(0);
+      }
+      .delay-100 { transition-delay: 100ms; }
+      .delay-200 { transition-delay: 200ms; }
+      .delay-300 { transition-delay: 300ms; }
+      
+      .expandable-content {
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.8s cubic-bezier(0, 1, 0, 1);
+      }
+      .expandable-content.expanded {
+        max-height: 5000px;
+        transition: max-height 1.2s ease-in-out;
+      }
+
+      .nav-transition {
+        transition: all 0.4s ease-in-out;
+      }
+
+      .product-item {
+        transition: opacity 0.4s ease-out, transform 0.4s ease-out;
+      }
+      .product-item.hidden-product {
+        display: none;
+        opacity: 0;
+        transform: scale(0.95);
+      }
+    </style>
+  <link rel="stylesheet" href="/index.css">
+</head>
+  <body class="antialiased font-sans selection:bg-sage-200 selection:text-sage-900">
+
+    <!-- Global Floating WhatsApp Button -->
+    <a href="https://wa.me/2349071536374" target="_blank" class="fixed bottom-6 right-6 z-50 bg-[#25D366] text-white p-4 rounded-full shadow-lg hover:bg-[#128C7E] transition-all duration-300 hover:scale-110 flex items-center justify-center group" aria-label="Chat on WhatsApp">
+      <svg class="w-8 h-8 fill-current" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.008-.57-.008-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
+      </svg>
+    </a>
+
+    <!-- Navbar -->
+    <nav id="navbar" class="fixed top-0 w-full z-50 nav-transition bg-transparent py-4">
+      <div class="container mx-auto px-6 md:px-12 flex justify-between items-center">
+        <!-- Logo Area -->
+        <a href="#home" class="flex flex-col items-center group">
+          <div class="h-12 w-12 md:h-14 md:w-14 rounded-full bg-white/80 p-1 mb-1 border border-sage-800 logo-border nav-transition overflow-hidden flex items-center justify-center shadow-sm">
+            <img src="logo.png" alt="Perfect Healing Logo" class="w-full h-full object-cover rounded-full group-hover:scale-110 nav-transition">
+          </div>
+          <div class="font-serif text-[8px] md:text-[10px] tracking-widest font-bold nav-text text-sage-800 text-center leading-tight nav-transition whitespace-nowrap">
+            PERFECT HEALING <br> THERAPY HOME
+          </div>
+        </a>
+
+        <!-- Desktop Links -->
+        <div class="hidden lg:flex items-center space-x-10">
+          <a href="#home" class="nav-link text-xs tracking-widest uppercase hover:opacity-75 nav-transition text-sage-800 font-bold">Home</a>
+          <a href="#services" class="nav-link text-xs tracking-widest uppercase hover:opacity-75 nav-transition text-sage-800 font-bold">Services</a>
+          <a href="#products" class="nav-link text-xs tracking-widest uppercase hover:opacity-75 nav-transition text-sage-800 font-bold">Products</a>
+          <a href="#about" class="nav-link text-xs tracking-widest uppercase hover:opacity-75 nav-transition text-sage-800 font-bold">About</a>
+          <a href="#contact" class="nav-link text-xs tracking-widest uppercase hover:opacity-75 nav-transition text-sage-800 font-bold">Contact</a>
+          <a href="https://wa.me/2349071536374" target="_blank" id="nav-cta" class="px-8 py-3 rounded-full text-xs uppercase tracking-widest nav-transition bg-sage-600 text-cream-50 hover:bg-sage-700 shadow-sm font-bold">
+            Book Appointment
+          </a>
+        </div>
+
+        <div class="lg:hidden">
+          <button id="mobile-menu-btn" class="nav-text text-sage-800 p-2">
+            <i data-lucide="menu" class="w-7 h-7"></i>
+          </button>
+        </div>
+      </div>
+
+      <!-- Mobile Dropdown -->
+      <div id="mobile-menu" class="hidden lg:hidden bg-sage-700 absolute top-full left-0 w-full py-8 px-6 flex flex-col space-y-6 shadow-2xl">
+        <a href="#home" class="mobile-link text-cream-50 text-lg font-serif block border-b border-sage-600 pb-2">Home</a>
+        <a href="#services" class="mobile-link text-cream-50 text-lg font-serif block border-b border-sage-600 pb-2">Services</a>
+        <a href="#products" class="mobile-link text-cream-50 text-lg font-serif block border-b border-sage-600 pb-2">Products</a>
+        <a href="#about" class="mobile-link text-cream-50 text-lg font-serif block border-b border-sage-600 pb-2">About</a>
+        <a href="#contact" class="mobile-link text-cream-50 text-lg font-serif block border-b border-sage-600 pb-2">Contact</a>
+      </div>
+    </nav>
+
+    <main>
+      <!-- Hero Section -->
+      <section id="home" class="relative w-full min-h-screen flex items-center bg-gradient-to-br from-cream-50 via-sage-50 to-cream-100 pt-20">
+        <div class="container mx-auto px-6 md:px-12 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center relative z-10">
+          <div class="space-y-10 text-center lg:text-left">
+            <div class="reveal">
+              <span class="text-sage-600 uppercase tracking-[0.3em] text-xs font-bold px-4 py-2 bg-white/50 rounded-full inline-block">Healing the Natural Way</span>
+            </div>
+            <div class="reveal delay-200">
+              <h1 class="font-serif text-6xl md:text-7xl lg:text-8xl text-sage-900 leading-[1.05] font-bold">
+                Reconnect With <br/>
+                <span class="italic text-sage-500">Pure Wellness</span>
+              </h1>
+            </div>
+            <div class="reveal delay-400">
+              <p class="text-sage-700 text-lg md:text-xl font-light leading-relaxed max-w-xl mx-auto lg:mx-0">
+                A holistic sanctuary dedicated to restoring health from the root using Ayurvedic principles, herbal medicine, and expert clinical physiotherapy.
+              </p>
+            </div>
+            <div class="reveal delay-600 flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-6">
+              <a href="#services" class="w-full sm:w-auto text-center px-12 py-5 bg-sage-600 text-cream-50 text-sm uppercase tracking-widest rounded-full hover:bg-sage-700 hover:shadow-xl transition-all transform hover:-translate-y-1 font-bold">
+                View Our Services
+              </a>
+              <a href="#products" class="w-full sm:w-auto text-center px-12 py-5 border-2 border-sage-600 text-sage-600 text-sm uppercase tracking-widest rounded-full hover:bg-sage-600 hover:text-cream-50 transition-all transform hover:-translate-y-1 font-bold">
+                Shop Remedies
+              </a>
+            </div>
+          </div>
+
+          <div class="relative flex items-center justify-center">
+            <div class="reveal delay-300 w-full max-w-lg aspect-square">
+              <div class="relative w-full h-full rounded-[6rem] overflow-hidden shadow-2xl border-8 border-white group">
+                <img src="https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?q=80&w=1200&auto=format&fit=crop" alt="Healing Atmosphere" class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110">
+              </div>
+              <div class="absolute -bottom-6 -right-6 w-32 h-32 md:w-48 md:h-48 rounded-full border-8 border-cream-50 overflow-hidden shadow-xl z-20">
+                <img src="https://images.unsplash.com/photo-1540555700478-4be289fbecef?q=80&w=400&auto=format&fit=crop" class="w-full h-full object-cover">
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Services Section -->
+      <section id="services" class="py-24 bg-white">
+        <div class="container mx-auto px-6 md:px-12">
+          <div class="text-center mb-16">
+            <div class="reveal">
+              <span class="text-sage-500 uppercase tracking-widest text-xs font-bold mb-4 block">Our Professional Care</span>
+              <h2 class="font-serif text-5xl text-sage-900 mb-6 uppercase tracking-tight font-bold">Advanced Therapeutic Services</h2>
+              <div class="h-1 w-20 bg-sage-200 mx-auto"></div>
+            </div>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+            <!-- 1. Ayurvedic Consultations -->
+            <div class="reveal bg-sage-50 rounded-[2.5rem] overflow-hidden group shadow-sm hover:shadow-xl transition-all border border-sage-100">
+              <div class="h-64 overflow-hidden relative">
+                <img src="https://images.unsplash.com/photo-1600334089648-b0d9d3028eb2?q=80&w=800&auto=format&fit=crop" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+              </div>
+              <div class="p-10">
+                <h4 class="font-serif text-2xl text-sage-900 mb-4 font-bold uppercase tracking-tight">Ayurvedic Consultations</h4>
+                <p class="text-sage-600 text-sm font-light mb-6 leading-relaxed">Personalized natural diagnosis to restore vital balance and treat root causes using ancient Indian wisdom.</p>
+                <a href="https://wa.me/2349071536374" target="_blank" class="text-sage-700 text-xs uppercase tracking-widest font-bold flex items-center gap-2 hover:gap-3 transition-all">Book Session <i data-lucide="arrow-right" class="w-4 h-4"></i></a>
+              </div>
+            </div>
+
+            <!-- 2. Physiotherapy -->
+            <div class="reveal delay-100 bg-sage-50 rounded-[2.5rem] overflow-hidden group shadow-sm hover:shadow-xl transition-all border border-sage-100">
+              <div class="h-64 overflow-hidden relative">
+                <img src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?q=80&w=800&auto=format&fit=crop" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+              </div>
+              <div class="p-10">
+                <h4 class="font-serif text-2xl text-sage-900 mb-4 font-bold uppercase tracking-tight">Clinical Physiotherapy</h4>
+                <p class="text-sage-600 text-sm font-light mb-6 leading-relaxed">Professional rehabilitation focused on chronic pain, movement restoration, and clinical physical therapy.</p>
+                <a href="https://wa.me/2349071536374" target="_blank" class="text-sage-700 text-xs uppercase tracking-widest font-bold flex items-center gap-2 hover:gap-3 transition-all">Enquire Now <i data-lucide="arrow-right" class="w-4 h-4"></i></a>
+              </div>
+            </div>
+
+            <!-- 3. Cancer Care -->
+            <div class="reveal delay-200 bg-sage-50 rounded-[2.5rem] overflow-hidden group shadow-sm hover:shadow-xl transition-all border border-sage-100">
+              <div class="h-64 overflow-hidden relative">
+                <img src="https://images.unsplash.com/photo-1505575967455-40e256f73376?q=80&w=800&auto=format&fit=crop" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+              </div>
+              <div class="p-10">
+                <h4 class="font-serif text-2xl text-sage-900 mb-4 font-bold uppercase tracking-tight">Supportive Cancer Care</h4>
+                <p class="text-sage-600 text-sm font-light mb-6 leading-relaxed">Integrated holistic management to support the body during clinical recovery and improve quality of life.</p>
+                <a href="https://wa.me/2349071536374" target="_blank" class="text-sage-700 text-xs uppercase tracking-widest font-bold flex items-center gap-2 hover:gap-3 transition-all">Consult Specialists <i data-lucide="arrow-right" class="w-4 h-4"></i></a>
+              </div>
+            </div>
+
+            <!-- 4. Neurological Rehab -->
+            <div class="reveal bg-sage-50 rounded-[2.5rem] overflow-hidden group shadow-sm hover:shadow-xl transition-all border border-sage-100">
+              <div class="h-64 overflow-hidden relative">
+                <img src="https://images.unsplash.com/photo-1559757175-5700dde675bc?q=80&w=800&auto=format&fit=crop" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+              </div>
+              <div class="p-10">
+                <h4 class="font-serif text-2xl text-sage-900 mb-4 font-bold uppercase tracking-tight">Neurological Rehab</h4>
+                <p class="text-sage-600 text-sm font-light mb-6 leading-relaxed">Stroke recovery, nerve damage rehabilitation, and motor skill restoration programs in a serene environment.</p>
+                <a href="https://wa.me/2349071536374" target="_blank" class="text-sage-700 text-xs uppercase tracking-widest font-bold flex items-center gap-2 hover:gap-3 transition-all">Start Rehab <i data-lucide="arrow-right" class="w-4 h-4"></i></a>
+              </div>
+            </div>
+
+            <!-- 5. Immune Support -->
+            <div class="reveal delay-100 bg-sage-50 rounded-[2.5rem] overflow-hidden group shadow-sm hover:shadow-xl transition-all border border-sage-100">
+              <div class="h-64 overflow-hidden relative">
+                <img src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?q=80&w=800&auto=format&fit=crop" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+              </div>
+              <div class="p-10">
+                <h4 class="font-serif text-2xl text-sage-900 mb-4 font-bold uppercase tracking-tight">Immune Support</h4>
+                <p class="text-sage-600 text-sm font-light mb-6 leading-relaxed">Natural detox and immune strengthening to combat chronic infections and restore systemic vitality.</p>
+                <a href="https://wa.me/2349071536374" target="_blank" class="text-sage-700 text-xs uppercase tracking-widest font-bold flex items-center gap-2 hover:gap-3 transition-all">Learn More <i data-lucide="arrow-right" class="w-4 h-4"></i></a>
+              </div>
+            </div>
+
+            <!-- 6. Reproductive Wellness -->
+            <div class="reveal delay-200 bg-sage-50 rounded-[2.5rem] overflow-hidden group shadow-sm hover:shadow-xl transition-all border border-sage-100">
+              <div class="h-64 overflow-hidden relative">
+                <img src="https://images.unsplash.com/photo-1518152006812-edab29b069ac?q=80&w=800&auto=format&fit=crop" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+              </div>
+              <div class="p-10">
+                <h4 class="font-serif text-2xl text-sage-900 mb-4 font-bold uppercase tracking-tight">Reproductive Wellness</h4>
+                <p class="text-sage-600 text-sm font-light mb-6 leading-relaxed">Hormonal balance and fertility support for men and women through advanced Ayurvedic medicine.</p>
+                <a href="https://wa.me/2349071536374" target="_blank" class="text-sage-700 text-xs uppercase tracking-widest font-bold flex items-center gap-2 hover:gap-3 transition-all">Book Consultation <i data-lucide="arrow-right" class="w-4 h-4"></i></a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Why Choose Us Section -->
+          <div class="mt-24 pt-24 border-t border-sage-100">
+            <div class="text-center mb-16">
+              <div class="reveal">
+                <h3 class="font-serif text-4xl text-sage-900 mb-4 font-bold uppercase tracking-tight">Why Choose Perfect Healing Therapy Home</h3>
+                <div class="h-1 w-20 bg-sage-200 mx-auto mb-10"></div>
+              </div>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+              <!-- Point 1 -->
+              <div class="reveal bg-white p-10 rounded-[2rem] border border-sage-50 shadow-sm hover:shadow-md transition-all group flex flex-col items-center text-center">
+                <div class="w-16 h-16 bg-sage-50 rounded-full flex items-center justify-center mb-6 group-hover:bg-sage-600 transition-colors">
+                  <i data-lucide="leaf" class="w-8 h-8 text-sage-600 group-hover:text-white"></i>
+                </div>
+                <h5 class="font-serif text-xl text-sage-900 mb-3 font-bold uppercase tracking-wide leading-tight">Natural & Holistic Care</h5>
+                <p class="text-sage-600 text-sm font-medium leading-relaxed">Purely natural, holistic & non-invasive care designed for safe recovery.</p>
+              </div>
+
+              <!-- Point 2 -->
+              <div class="reveal delay-100 bg-white p-10 rounded-[2rem] border border-sage-50 shadow-sm hover:shadow-md transition-all group flex flex-col items-center text-center">
+                <div class="w-16 h-16 bg-sage-50 rounded-full flex items-center justify-center mb-6 group-hover:bg-sage-600 transition-colors">
+                  <i data-lucide="target" class="w-8 h-8 text-sage-600 group-hover:text-white"></i>
+                </div>
+                <h5 class="font-serif text-xl text-sage-900 mb-3 font-bold uppercase tracking-wide leading-tight">Root-Cause Healing</h5>
+                <p class="text-sage-600 text-sm font-medium leading-relaxed">A specialized root-cause healing approach to diagnosis and treatment protocols.</p>
+              </div>
+
+              <!-- Point 3 -->
+              <div class="reveal delay-200 bg-white p-10 rounded-[2rem] border border-sage-50 shadow-sm hover:shadow-md transition-all group flex flex-col items-center text-center">
+                <div class="w-16 h-16 bg-sage-50 rounded-full flex items-center justify-center mb-6 group-hover:bg-sage-600 transition-colors">
+                  <i data-lucide="flask-conical" class="w-8 h-8 text-sage-600 group-hover:text-white"></i>
+                </div>
+                <h5 class="font-serif text-xl text-sage-900 mb-3 font-bold uppercase tracking-wide leading-tight">Safe Formulations</h5>
+                <p class="text-sage-600 text-sm font-medium leading-relaxed">Safe herbal formulations ensuring non-invasive and risk-free wellness journeys.</p>
+              </div>
+
+              <!-- Point 4 -->
+              <div class="reveal bg-white p-10 rounded-[2rem] border border-sage-50 shadow-sm hover:shadow-md transition-all group flex flex-col items-center text-center">
+                <div class="w-16 h-16 bg-sage-50 rounded-full flex items-center justify-center mb-6 group-hover:bg-sage-600 transition-colors">
+                  <i data-lucide="user-check" class="w-8 h-8 text-sage-600 group-hover:text-white"></i>
+                </div>
+                <h5 class="font-serif text-xl text-sage-900 mb-3 font-bold uppercase tracking-wide leading-tight">Personalized Protocols</h5>
+                <p class="text-sage-600 text-sm font-medium leading-relaxed">Individually tailored wellness protocols based on your unique physiological needs.</p>
+              </div>
+
+              <!-- Point 5 -->
+              <div class="reveal delay-100 bg-white p-10 rounded-[2rem] border border-sage-50 shadow-sm hover:shadow-md transition-all group flex flex-col items-center text-center">
+                <div class="w-16 h-16 bg-sage-50 rounded-full flex items-center justify-center mb-6 group-hover:bg-sage-600 transition-colors">
+                  <i data-lucide="home" class="w-8 h-8 text-sage-600 group-hover:text-white"></i>
+                </div>
+                <h5 class="font-serif text-xl text-sage-900 mb-3 font-bold uppercase tracking-wide leading-tight">Calm Environment</h5>
+                <p class="text-sage-600 text-sm font-medium leading-relaxed">A calm, healing, and professional environment designed for peaceful recovery.</p>
+              </div>
+
+              <!-- Point 6 -->
+              <div class="reveal delay-200 bg-white p-10 rounded-[2rem] border border-sage-50 shadow-sm hover:shadow-md transition-all group flex flex-col items-center text-center">
+                <div class="w-16 h-16 bg-sage-50 rounded-full flex items-center justify-center mb-6 group-hover:bg-sage-600 transition-colors">
+                  <i data-lucide="sparkles" class="w-8 h-8 text-sage-600 group-hover:text-white"></i>
+                </div>
+                <h5 class="font-serif text-xl text-sage-900 mb-3 font-bold uppercase tracking-wide leading-tight">Luxury & Discretion</h5>
+                <p class="text-sage-600 text-sm font-medium leading-relaxed">Discreet, calm & luxury healing spaces for maximum comfort and privacy.</p>
+              </div>
+
+              <!-- Point 7 -->
+              <div class="reveal bg-white p-10 rounded-[2rem] border border-sage-50 shadow-sm hover:shadow-md transition-all group flex flex-col items-center text-center">
+                <div class="w-16 h-16 bg-sage-50 rounded-full flex items-center justify-center mb-6 group-hover:bg-sage-600 transition-colors">
+                  <i data-lucide="users" class="w-8 h-8 text-sage-600 group-hover:text-white"></i>
+                </div>
+                <h5 class="font-serif text-xl text-sage-900 mb-3 font-bold uppercase tracking-wide leading-tight">Inclusive Care</h5>
+                <p class="text-sage-600 text-sm font-medium leading-relaxed">Compassionate care for both men and women of all ages and wellness stages.</p>
+              </div>
+
+              <!-- Point 8 -->
+              <div class="reveal delay-100 bg-white p-10 rounded-[2rem] border border-sage-50 shadow-sm hover:shadow-md transition-all group flex flex-col items-center text-center lg:col-span-2">
+                <div class="w-16 h-16 bg-sage-50 rounded-full flex items-center justify-center mb-6 group-hover:bg-sage-600 transition-colors">
+                  <i data-lucide="award" class="w-8 h-8 text-sage-600 group-hover:text-white"></i>
+                </div>
+                <h5 class="font-serif text-xl text-sage-900 mb-3 font-bold uppercase tracking-wide leading-tight">Medical-Grade Holistic Care</h5>
+                <p class="text-sage-600 text-sm font-medium leading-relaxed">High-standard, medical-grade holistic care delivering clinical excellence naturally.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Products Section -->
+      <section id="products" class="py-24 bg-sage-50/30">
+        <div class="container mx-auto px-6 md:px-12">
+          <div class="text-center mb-12">
+            <div class="reveal">
+              <span class="text-sage-500 uppercase tracking-widest text-xs font-bold mb-4 block text-center">Our Healing Remedies</span>
+              <h2 class="font-serif text-5xl text-sage-900 mb-10 uppercase tracking-tight font-bold text-center">Nature's Medicine Cabinet</h2>
+              
+              <div class="flex flex-wrap justify-center gap-6 mb-16">
+                <button class="filter-btn active text-sage-900 font-bold uppercase tracking-widest text-xs border-b-2 border-sage-600 pb-2" data-category="all">All Remedies</button>
+                <button class="filter-btn text-sage-400 font-bold uppercase tracking-widest text-xs border-b-2 border-transparent pb-2 hover:text-sage-700" data-category="ayurvedic">Ayurvedic Curative</button>
+                <button class="filter-btn text-sage-400 font-bold uppercase tracking-widest text-xs border-b-2 border-transparent pb-2 hover:text-sage-700" data-category="herbal">Herbal Booster</button>
+              </div>
+            </div>
+          </div>
+
+          <div id="product-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+             
+             <!-- 1. Hormonal 500 -->
+             <div class="product-item reveal bg-white rounded-[3rem] overflow-hidden group shadow-sm hover:shadow-2xl transition-all border border-sage-100 flex flex-col" data-category="ayurvedic">
+               <div class="h-[350px] overflow-hidden relative bg-[#fbebe4] flex items-center justify-center p-10 text-center">
+                    <div class="absolute inset-0 bg-gradient-to-br from-white/20 to-transparent"></div>
+                    <div class="relative z-10">
+                        <h5 class="text-black font-serif text-4xl font-black mb-2 uppercase tracking-tighter">HORMONAL 500</h5>
+                        <p class="text-sage-800 text-xs tracking-widest font-bold uppercase mb-4">Infections/Fertility Support</p>
+                        <div class="w-16 h-1 bg-black mx-auto mb-4"></div>
+                        <p class="text-black/70 text-[10px] max-w-xs font-bold uppercase tracking-[0.2em] leading-relaxed">Ayurvedic Regimen</p>
+                    </div>
+               </div>
+               <div class="p-10 flex flex-col flex-grow">
+                 <h4 class="font-serif text-2xl mb-4 font-bold text-sage-900">Hormonal 500</h4>
+                 <p class="text-sage-600 text-sm mb-6 font-medium leading-relaxed">Designed to support hormonal balance, reproductive health, and intimate wellness.</p>
+                 <div class="expandable-content" id="p1-desc">
+                    <div class="pt-6 border-t border-sage-100 space-y-4 text-sage-600 text-sm text-justify font-light">
+                      <p class="font-bold text-sage-800 uppercase text-[10px] tracking-widest">Medical & Therapeutic Benefits:</p>
+                      <ul class="space-y-2 text-xs">
+                        <li>• <strong>Hormonal Regulation:</strong> Supports estrogen balance essential for cycle regularity.</li>
+                        <li>• <strong>Prolactin & Ovulation:</strong> Assists in maintaining healthy prolactin levels for improved fertility.</li>
+                        <li>• <strong>Intimate Care:</strong> Helps manage yeast overgrowth and recurrent vaginal discomfort.</li>
+                        <li>• <strong>Chronic Infection Aid:</strong> Supports the immune system against persistent microbial challenges.</li>
+                        <li>• <strong>Conception Preparation:</strong> Nourishes uterine health for women planning pregnancy.</li>
+                      </ul>
+                    </div>
+                 </div>
+                 <div class="flex items-center justify-between mt-auto pt-8">
+                    <button class="see-more-btn text-sage-600 font-bold uppercase text-[10px] tracking-widest flex items-center gap-2" data-target="p1-desc">
+                      <span>See More</span>
+                      <i data-lucide="chevron-down" class="w-4 h-4"></i>
+                    </button>
+                    <a href="https://wa.me/2349071536374" target="_blank" class="px-8 py-3 bg-sage-900 text-cream-50 text-[10px] font-bold uppercase tracking-widest rounded-full hover:bg-black transition-all shadow-lg">Order</a>
+                 </div>
+               </div>
+             </div>
+
+             <!-- 2. D HORSE -->
+             <div class="product-item reveal delay-100 bg-white rounded-[3rem] overflow-hidden group shadow-sm hover:shadow-2xl transition-all border border-sage-100 flex flex-col" data-category="herbal">
+               <div class="h-[350px] overflow-hidden relative bg-[#064e3b] flex items-center justify-center p-10 text-center">
+                    <div class="relative z-10">
+                        <h5 class="text-yellow-400 font-serif text-6xl font-black mb-2 italic">D HORSE</h5>
+                        <p class="text-white text-xs tracking-widest font-bold uppercase mb-4">Pain Relief Balm</p>
+                        <div class="w-16 h-1 bg-yellow-500 mx-auto mb-4"></div>
+                    </div>
+               </div>
+               <div class="p-10 flex flex-col flex-grow">
+                 <h4 class="font-serif text-2xl mb-4 font-bold text-sage-900">D HORSE® Herbal Balm</h4>
+                 <p class="text-sage-600 text-sm mb-6 font-medium leading-relaxed">Targeted relief for chronic pain, stiffness, and musculoskeletal fatigue.</p>
+                 <div class="expandable-content" id="p2-desc">
+                    <div class="pt-6 border-t border-sage-100 space-y-4 text-sage-600 text-sm text-justify font-light">
+                      <p class="font-bold text-sage-800 uppercase text-[10px] tracking-widest">Medical Indications:</p>
+                      <ul class="space-y-1 text-xs mb-4">
+                        <li>• Muscle fatigue, joint pain, and stiffness</li>
+                        <li>• Arthritis and rheumatic discomfort</li>
+                        <li>• Neck, shoulder, back, and waist pain</li>
+                        <li>• tension-linked headaches</li>
+                      </ul>
+                      <p class="font-bold text-sage-800 uppercase text-[10px] tracking-widest">Mechanism of Action:</p>
+                      <p class="text-xs">Fast skin absorption with localized anti-inflammatory support. Delivers a soothing warming effect that relaxes tight fibers and enhances microcirculation at the source.</p>
+                    </div>
+                 </div>
+                 <div class="flex items-center justify-between mt-auto pt-8">
+                    <button class="see-more-btn text-sage-600 font-bold uppercase text-[10px] tracking-widest flex items-center gap-2" data-target="p2-desc">
+                      <span>See More</span>
+                      <i data-lucide="chevron-down" class="w-4 h-4"></i>
+                    </button>
+                    <a href="https://wa.me/2349071536374" target="_blank" class="px-8 py-3 bg-sage-900 text-cream-50 text-[10px] font-bold uppercase tracking-widest rounded-full hover:bg-black transition-all shadow-lg">Order</a>
+                 </div>
+               </div>
+             </div>
+
+             <!-- 3. Magic Healing YP -->
+             <div class="product-item reveal delay-200 bg-white rounded-[3rem] overflow-hidden group shadow-sm hover:shadow-2xl transition-all border border-sage-100 flex flex-col" data-category="ayurvedic">
+                <div class="h-[350px] overflow-hidden relative bg-black flex items-center justify-center p-10 text-center">
+                    <div class="absolute inset-0 bg-gradient-to-br from-[#4a148c]/40 to-transparent"></div>
+                    <div class="relative z-10">
+                        <h5 class="text-white font-serif text-4xl font-black mb-2 uppercase tracking-tighter">MAGIC HEALING YP</h5>
+                        <p class="text-purple-300 text-lg tracking-[0.3em] font-bold uppercase mb-4 italic">Yoni Wellness</p>
+                    </div>
+               </div>
+               <div class="p-10 flex flex-col flex-grow">
+                 <h4 class="font-serif text-2xl mb-4 font-bold text-sage-900">Magic Healing YP</h4>
+                 <p class="text-sage-600 text-sm mb-6 font-medium leading-relaxed">Inspired by traditional Indian gynecological care practices.</p>
+                 <div class="expandable-content" id="p3-desc">
+                    <div class="pt-6 border-t border-sage-100 space-y-4 text-sage-600 text-sm text-justify font-light">
+                      <p class="font-bold text-sage-800 uppercase text-[10px] tracking-widest">Key Medical Support:</p>
+                      <ul class="space-y-2 text-xs">
+                        <li>• <strong>Intimate Hygiene:</strong> Balanced environment defense against abnormal discharge.</li>
+                        <li>• <strong>Infection Support:</strong> Aids women prone to yeast and bacterial overgrowth.</li>
+                        <li>• <strong>Uterine & Ovarian:</strong> Supports wellness for those with history of cysts or fibroids.</li>
+                        <li>• <strong>Tissue Health:</strong> Beneficial for dryness related to hormonal changes or aging.</li>
+                        <li>• <strong>Fertility Aid:</strong> Promotes a healthier internal reproductive environment.</li>
+                      </ul>
+                    </div>
+                 </div>
+                 <div class="flex items-center justify-between mt-auto pt-8">
+                    <button class="see-more-btn text-sage-600 font-bold uppercase text-[10px] tracking-widest flex items-center gap-2" data-target="p3-desc">
+                      <span>See More</span>
+                      <i data-lucide="chevron-down" class="w-4 h-4"></i>
+                    </button>
+                    <a href="https://wa.me/2349071536374" target="_blank" class="px-8 py-3 bg-sage-900 text-cream-50 text-[10px] font-bold uppercase tracking-widest rounded-full hover:bg-black transition-all shadow-lg">Order</a>
+                 </div>
+               </div>
+             </div>
+
+             <!-- 4. Ladies Secret VG Care -->
+             <div class="product-item reveal bg-white rounded-[3rem] overflow-hidden group border border-sage-100 flex flex-col" data-category="ayurvedic">
+               <div class="h-[350px] bg-[#fdf2f8] flex items-center justify-center p-10 text-center">
+                    <div>
+                        <h5 class="text-pink-600 font-serif text-4xl font-black mb-2 uppercase tracking-tight">LADIES SECRETS</h5>
+                        <p class="text-pink-800 text-xs font-bold uppercase tracking-widest italic">VG CARE</p>
+                    </div>
+               </div>
+               <div class="p-10 flex flex-col flex-grow">
+                 <h4 class="font-serif text-2xl mb-4 font-bold text-sage-900">Ladies Secret VG Care</h4>
+                 <p class="text-sage-600 text-sm mb-6 leading-relaxed">Gentle non-hormonal support for women's reproductive dignity.</p>
+                 <div class="expandable-content" id="p4-desc">
+                    <div class="pt-6 border-t border-sage-100 text-sage-600 text-sm text-justify font-light">
+                      <ul class="space-y-2 text-xs">
+                        <li>• <strong>Reproductive Balance:</strong> Maintains healthy hormonal environment and cycles.</li>
+                        <li>• <strong>Menstrual Comfort:</strong> Eases PMS, cramps, and cycle irregularities.</li>
+                        <li>• <strong>Intimate Lubrication:</strong> Supports tissue moisture and natural confidence.</li>
+                        <li>• <strong>Fibroid Wellness:</strong> Traditionally used to manage uterine health.</li>
+                        <li>• <strong>Pelvic Support:</strong> Improves regional circulation linked to gynecological health.</li>
+                      </ul>
+                    </div>
+                 </div>
+                 <div class="flex items-center justify-between mt-auto pt-8">
+                    <button class="see-more-btn text-sage-600 font-bold uppercase text-[10px] tracking-widest flex items-center gap-2" data-target="p4-desc">
+                      <span>See More</span>
+                      <i data-lucide="chevron-down" class="w-4 h-4"></i>
+                    </button>
+                    <a href="https://wa.me/2349071536374" target="_blank" class="px-8 py-3 bg-sage-900 text-cream-50 text-[10px] font-bold uppercase tracking-widest rounded-full hover:bg-black transition-all shadow-lg">Order</a>
+                 </div>
+               </div>
+             </div>
+
+             <!-- 5. Prostate-Vide -->
+             <div class="product-item reveal delay-100 bg-white rounded-[3rem] overflow-hidden group border border-sage-100 flex flex-col" data-category="ayurvedic">
+               <div class="h-[350px] bg-[#311b92] flex items-center justify-center p-10 text-center">
+                    <h5 class="text-yellow-400 font-serif text-4xl font-black uppercase tracking-tighter">PROSTATE-VIDE</h5>
+               </div>
+               <div class="p-10 flex flex-col flex-grow">
+                 <h4 class="font-serif text-2xl mb-4 font-bold text-sage-900">Prostate-Vide™</h4>
+                 <p class="text-sage-600 text-sm mb-6 leading-relaxed">Clinically studied botanical extracts for male urinary wellness.</p>
+                 <div class="expandable-content" id="p5-desc">
+                    <div class="pt-6 border-t border-sage-100 text-sage-600 text-sm text-justify font-light">
+                      <ul class="space-y-2 text-xs">
+                        <li>• <strong>PSA Balance:</strong> Helps maintain PSA within acceptable range.</li>
+                        <li>• <strong>Size Regulation:</strong> Supports normal prostate tissue physiology.</li>
+                        <li>• <strong>Urinary Tract:</strong> Relieves frequent, weak, or interrupted flow.</li>
+                        <li>• <strong>Vitality:</strong> Enhances libido and confidence by improving pelvic circulation.</li>
+                        <li>• <strong>Cellular Support:</strong> Bioactive compounds for tissue nourishment.</li>
+                      </ul>
+                    </div>
+                 </div>
+                 <div class="flex items-center justify-between mt-auto pt-8">
+                    <button class="see-more-btn text-sage-600 font-bold uppercase text-[10px] tracking-widest flex items-center gap-2" data-target="p5-desc">
+                      <span>See More</span>
+                      <i data-lucide="chevron-down" class="w-4 h-4"></i>
+                    </button>
+                    <a href="https://wa.me/2349071536374" target="_blank" class="px-8 py-3 bg-sage-900 text-cream-50 text-[10px] font-bold uppercase tracking-widest rounded-full hover:bg-black transition-all shadow-lg">Order</a>
+                 </div>
+               </div>
+             </div>
+
+             <!-- 6. Deep Solution -->
+             <div class="product-item reveal delay-200 bg-white rounded-[3rem] overflow-hidden group border border-sage-100 flex flex-col" data-category="ayurvedic">
+               <div class="h-[350px] bg-[#0d47a1] flex items-center justify-center p-10 text-center">
+                    <h5 class="text-white font-serif text-4xl font-black uppercase tracking-tight">DEEP SOLUTION</h5>
+               </div>
+               <div class="p-10 flex flex-col flex-grow">
+                 <h4 class="font-serif text-2xl mb-4 font-bold text-sage-900">Deep Solution™</h4>
+                 <p class="text-sage-600 text-sm mb-6 leading-relaxed">Respiratory support designed to assist lung function and comfort.</p>
+                 <div class="expandable-content" id="p6-desc">
+                    <div class="pt-6 border-t border-sage-100 text-sage-600 text-sm text-justify font-light">
+                      <p class="font-bold text-sage-800 uppercase text-[10px] tracking-widest">Medical Support For:</p>
+                      <ul class="space-y-1 text-xs mb-4">
+                        <li>• <strong>Asthma & COPD:</strong> Supports airway relaxation and oxygen utilization.</li>
+                        <li>• <strong>Chronic Bronchitis:</strong> Aids chest congestion and mucus clearance.</li>
+                        <li>• <strong>Emphysema & Bronchiectasis:</strong> Supports weakened lung tissues.</li>
+                        <li>• <strong>Pneumonia Recovery:</strong> Assists immune recovery and lung cleansing.</li>
+                      </ul>
+                      <p class="text-xs">Works through bronchial relaxation, expectoration support, and pulmonary antioxidant protection.</p>
+                    </div>
+                 </div>
+                 <div class="flex items-center justify-between mt-auto pt-8">
+                    <button class="see-more-btn text-sage-600 font-bold uppercase text-[10px] tracking-widest flex items-center gap-2" data-target="p6-desc">
+                      <span>See More</span>
+                      <i data-lucide="chevron-down" class="w-4 h-4"></i>
+                    </button>
+                    <a href="https://wa.me/2349071536374" target="_blank" class="px-8 py-3 bg-sage-900 text-cream-50 text-[10px] font-bold uppercase tracking-widest rounded-full hover:bg-black transition-all shadow-lg">Order</a>
+                 </div>
+               </div>
+             </div>
+
+             <!-- 7. Hemorry 2-in-1 -->
+             <div class="product-item reveal bg-white rounded-[3rem] overflow-hidden group border border-sage-100 flex flex-col" data-category="ayurvedic">
+               <div class="h-[350px] bg-sage-900 flex items-center justify-center p-10 text-center">
+                    <h5 class="text-green-400 font-serif text-4xl font-black tracking-tight">HEMORRY 2-IN-1</h5>
+               </div>
+               <div class="p-10 flex flex-col flex-grow">
+                 <h4 class="font-serif text-2xl mb-4 font-bold text-sage-900">Hemorry 2-In-1</h4>
+                 <p class="text-sage-600 text-sm mb-6 leading-relaxed">Premium natural management for internal and external piles.</p>
+                 <div class="expandable-content" id="p7-desc">
+                    <div class="pt-6 border-t border-sage-100 text-sage-600 text-sm text-justify font-light">
+                      <p class="font-bold text-sage-800 uppercase text-[10px] tracking-widest">Therapeutic Actions:</p>
+                      <ul class="space-y-2 text-xs">
+                        <li>• Reduces hemorrhoidal swelling and inflammation.</li>
+                        <li>• Soothes irritated rectal tissues and relieves itching.</li>
+                        <li>• Assists in relieving pain and burning sensation.</li>
+                        <li>• Supports healthy circulation in the anal region.</li>
+                        <li>• Promotes comfortable bowel movement to prevent strain.</li>
+                      </ul>
+                    </div>
+                 </div>
+                 <div class="flex items-center justify-between mt-auto pt-8">
+                    <button class="see-more-btn text-sage-600 font-bold uppercase text-[10px] tracking-widest flex items-center gap-2" data-target="p7-desc">
+                      <span>See More</span>
+                      <i data-lucide="chevron-down" class="w-4 h-4"></i>
+                    </button>
+                    <a href="https://wa.me/2349071536374" target="_blank" class="px-8 py-3 bg-sage-900 text-cream-50 text-[10px] font-bold uppercase tracking-widest rounded-full hover:bg-black transition-all shadow-lg">Order</a>
+                 </div>
+               </div>
+             </div>
+
+             <!-- 8. King-Jack -->
+             <div class="product-item reveal delay-100 bg-white rounded-[3rem] overflow-hidden group border border-sage-100 flex flex-col" data-category="ayurvedic">
+               <div class="h-[350px] bg-[#b71c1c] flex items-center justify-center p-10 text-center">
+                    <h5 class="text-yellow-400 font-serif text-5xl font-black italic">KING-JACK</h5>
+               </div>
+               <div class="p-10 flex flex-col flex-grow">
+                 <h4 class="font-serif text-2xl mb-4 font-bold text-sage-900">King-Jack</h4>
+                 <p class="text-sage-600 text-sm mb-6 leading-relaxed">Male performance and reproductive vitality Ayurvedic formula.</p>
+                 <div class="expandable-content" id="p8-desc">
+                    <div class="pt-6 border-t border-sage-100 text-sage-600 text-sm text-justify font-light">
+                      <p class="text-xs mb-3">Designed to support sexual performance, stamina, reproductive health, and overall vitality through natural ingredients.</p>
+                      <ul class="space-y-2 text-xs">
+                        <li>• Supports erectile confidence and weak erection issues.</li>
+                        <li>• Improves male libido and hormone regulation.</li>
+                        <li>• Enhances sperm count and reproductive wellness.</li>
+                        <li>• Responsibly formulated to support physiology without side effects.</li>
+                      </ul>
+                    </div>
+                 </div>
+                 <div class="flex items-center justify-between mt-auto pt-8">
+                    <button class="see-more-btn text-sage-600 font-bold uppercase text-[10px] tracking-widest flex items-center gap-2" data-target="p8-desc">
+                      <span>See More</span>
+                      <i data-lucide="chevron-down" class="w-4 h-4"></i>
+                    </button>
+                    <a href="https://wa.me/2349071536374" target="_blank" class="px-8 py-3 bg-sage-900 text-cream-50 text-[10px] font-bold uppercase tracking-widest rounded-full hover:bg-black transition-all shadow-lg">Order</a>
+                 </div>
+               </div>
+             </div>
+
+             <!-- 9. Brain Energy Tea -->
+             <div class="product-item reveal delay-200 bg-white rounded-[3rem] overflow-hidden group border border-sage-100 flex flex-col" data-category="herbal">
+               <div class="h-[350px] bg-[#4a148c] flex items-center justify-center p-10 text-center">
+                    <h5 class="text-white font-serif text-4xl font-black italic uppercase tracking-tight">BRAIN ENERGY TEA</h5>
+               </div>
+               <div class="p-10 flex flex-col flex-grow">
+                 <h4 class="font-serif text-2xl mb-4 font-bold text-sage-900">Brain Energy™ Tea</h4>
+                 <p class="text-sage-600 text-sm mb-6 leading-relaxed">Nourish the brain, calm the nerves, and support memory.</p>
+                 <div class="expandable-content" id="p9-desc">
+                    <div class="pt-6 border-t border-sage-100 text-sage-600 text-xs text-justify font-light">
+                      <p class="font-bold text-sage-800 uppercase text-[10px] tracking-widest mb-2">Mechanism of Action:</p>
+                      <ul class="space-y-2 mb-4">
+                        <li>• <strong>Neuroprotection:</strong> Antioxidants protect against mental fog and memory decline.</li>
+                        <li>• <strong>Nervous System:</strong> Supports calm neurotransmitters for anxiety reduction.</li>
+                        <li>• <strong>Cerebral Circulation:</strong> Enhances microcirculation for nutrient delivery.</li>
+                        <li>• <strong>Stress Modulation:</strong> Regulates cortisol-related mental exhaustion.</li>
+                      </ul>
+                      <p class="font-bold text-sage-800 uppercase text-[10px] tracking-widest mb-2">Key Ingredients:</p>
+                      <p class="mb-4">Lavender, Dandelion, Strawberry, Moringa, Cloves.</p>
+                      <p class="font-bold text-sage-800 uppercase text-[10px] tracking-widest mb-1">Dosage:</p>
+                      <p>1 tsp in hot water, steep 5-10 mins. Morning and evening usage recommended.</p>
+                    </div>
+                 </div>
+                 <div class="flex items-center justify-between mt-auto pt-8">
+                    <button class="see-more-btn text-sage-600 font-bold uppercase text-[10px] tracking-widest flex items-center gap-2" data-target="p9-desc">
+                      <span>See More</span>
+                      <i data-lucide="chevron-down" class="w-4 h-4"></i>
+                    </button>
+                    <a href="https://wa.me/2349071536374" target="_blank" class="px-8 py-3 bg-sage-900 text-cream-50 text-[10px] font-bold uppercase tracking-widest rounded-full hover:bg-black transition-all shadow-lg">Order</a>
+                 </div>
+               </div>
+             </div>
+
+             <!-- 10. Diabo-Clear -->
+             <div class="product-item reveal bg-white rounded-[3rem] overflow-hidden group border border-sage-100 flex flex-col" data-category="ayurvedic">
+               <div class="h-[350px] bg-[#1b5e20] flex items-center justify-center p-10 text-center">
+                    <h5 class="text-yellow-400 font-serif text-4xl font-black uppercase">DIABO-CLEAR</h5>
+               </div>
+               <div class="p-10 flex flex-col flex-grow">
+                 <h4 class="font-serif text-2xl mb-4 font-bold text-sage-900">Diabo-Clear</h4>
+                 <p class="text-sage-600 text-sm mb-6 leading-relaxed">Support for blood sugar balance and metabolic rejuvenation.</p>
+                 <div class="expandable-content" id="p10-desc">
+                    <div class="pt-6 border-t border-sage-100 text-sage-600 text-sm text-justify font-light">
+                      <p class="text-xs">Natural insulin support using the most potent Indian roots and leaves. Specifically formulated to help prevent, control, and reverse high blood sugar levels by improving metabolic efficiency and pancreatic health.</p>
+                    </div>
+                 </div>
+                 <div class="flex items-center justify-between mt-auto pt-8">
+                    <button class="see-more-btn text-sage-600 font-bold uppercase text-[10px] tracking-widest flex items-center gap-2" data-target="p10-desc">
+                      <span>See More</span>
+                      <i data-lucide="chevron-down" class="w-4 h-4"></i>
+                    </button>
+                    <a href="https://wa.me/2349071536374" target="_blank" class="px-8 py-3 bg-sage-900 text-cream-50 text-[10px] font-bold uppercase tracking-widest rounded-full hover:bg-black transition-all shadow-lg">Order</a>
+                 </div>
+               </div>
+             </div>
+
+             <!-- 11. Liver & Kidney Care -->
+             <div class="product-item reveal delay-100 bg-white rounded-[3rem] overflow-hidden group border border-sage-100 flex flex-col" data-category="ayurvedic">
+               <div class="h-[350px] bg-sage-800 flex items-center justify-center p-10 text-center">
+                    <h5 class="text-cream-50 font-serif text-4xl font-black uppercase leading-tight">LIVER & KIDNEY CARE</h5>
+               </div>
+               <div class="p-10 flex flex-col flex-grow">
+                 <h4 class="font-serif text-2xl mb-4 font-bold text-sage-900">Liver & Kidney Care™</h4>
+                 <p class="text-sage-600 text-sm mb-6 leading-relaxed">Advanced Ayurvedic support for hepatic and renal wellness.</p>
+                 <div class="expandable-content" id="p11-desc">
+                    <div class="pt-6 border-t border-sage-100 text-sage-600 text-xs text-justify font-light">
+                      <p class="font-bold text-sage-800 uppercase text-[10px] tracking-widest mb-2">Therapeutic Support For:</p>
+                      <ul class="space-y-1 mb-4">
+                        <li>• Liver stress and metabolic overload</li>
+                        <li>• Jaundice-related weakness & bilirubin balance</li>
+                        <li>• Fatty liver (Non-alcoholic & lifestyle)</li>
+                        <li>• Hepatic congestion and ascites (edema)</li>
+                        <li>• Blood purification & metabolic resilience</li>
+                      </ul>
+                      <p class="text-[10px] text-sage-400">Works by supporting healthy liver enzyme balance and clearing systemic toxins.</p>
+                    </div>
+                 </div>
+                 <div class="flex items-center justify-between mt-auto pt-8">
+                    <button class="see-more-btn text-sage-600 font-bold uppercase text-[10px] tracking-widest flex items-center gap-2" data-target="p11-desc">
+                      <span>See More</span>
+                      <i data-lucide="chevron-down" class="w-4 h-4"></i>
+                    </button>
+                    <a href="https://wa.me/2349071536374" target="_blank" class="px-8 py-3 bg-sage-600 text-cream-50 text-[10px] font-bold uppercase tracking-widest rounded-full hover:bg-sage-800 transition-all shadow-lg">Order</a>
+                 </div>
+               </div>
+             </div>
+
+          </div>
+        </div>
+      </section>
+
+      <!-- About Section -->
+      <section id="about" class="py-24 bg-white overflow-hidden">
+        <div class="container mx-auto px-6 md:px-12">
+          <div class="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
+            <div class="reveal">
+              <span class="text-sage-500 uppercase tracking-widest text-xs font-bold mb-6 block">Our Brand Story</span>
+              <h2 class="font-serif text-4xl md:text-5xl text-sage-900 mb-8 font-bold leading-tight">Perfect Healing Therapy Home – <span class="italic text-sage-600">Healing the Natural Way</span></h2>
+              
+              <div class="text-sage-700 font-light leading-relaxed text-lg space-y-6 text-justify">
+                <p>Perfect Healing Therapy Home is a holistic wellness and natural healing center dedicated to restoring health from the root using the power of nature. We combine Ayurvedic principles, herbal medicine, therapeutic massage, detox therapies, and lifestyle guidance to help the body heal itself naturally—without dependency on harsh chemicals or long-term drugs.</p>
+                
+                <p>At Perfect Healing Therapy Home, we believe that true healing starts from within. Our approach focuses on identifying the root cause of illness rather than just suppressing symptoms. Every client is treated as unique, with personalized care plans designed to support the body, mind, and spirit.</p>
+                
+                <div id="about-more-content" class="expandable-content">
+                  <div class="space-y-6 mt-6">
+                    <p>Perfect Healing Therapy Home offers an advanced range of integrated medical, rehabilitative, and Ayurvedic therapies designed to support recovery, restore function, and improve quality of life.</p>
+                    <p>Our services combine professional physiotherapy, supportive cancer care, and neurological rehabilitation with holistic and natural healing principles.</p>
+                    <p>All therapies are delivered in a serene, hygienic, and professionally managed environment, ensuring both comfort and clinical excellence. Each client receives a customized treatment plan tailored to their unique health needs.</p>
+                    
+                    <div class="mt-12 grid grid-cols-1 md:grid-cols-2 gap-8">
+                      <div class="bg-sage-50 p-8 rounded-[2rem] border border-sage-100">
+                        <h3 class="font-serif text-2xl text-sage-800 mb-4 font-bold uppercase tracking-tight">✨ OUR MISSION</h3>
+                        <p class="text-sm">To help people live healthier, stronger, and longer lives by reconnecting them with the healing power of nature.</p>
+                      </div>
+                      <div class="bg-cream-100/50 p-8 rounded-[2rem] border border-sage-100">
+                        <h3 class="font-serif text-2xl text-sage-800 mb-4 font-bold uppercase tracking-tight">🤝 OUR COMMITMENT</h3>
+                        <p class="text-sm font-medium">We are committed to delivering ethical, effective, and evidence-informed natural healthcare, helping our clients achieve sustainable wellness, vitality, and quality of life.</p>
+                      </div>
+                    </div>
+
+                    <div class="mt-12 p-10 bg-sage-900 text-cream-50 rounded-[2.5rem] shadow-xl">
+                      <h3 class="font-serif text-3xl mb-8 text-center font-bold uppercase tracking-tight">What We Treat & Support</h3>
+                      <div class="grid grid-cols-1 sm:grid-cols-2 gap-x-10 gap-y-6 text-sm">
+                          <div class="flex items-center gap-3"><i data-lucide="check" class="text-sage-300 w-5 h-5"></i> Chronic body pain, arthritis & joint problems</div>
+                          <div class="flex items-center gap-3"><i data-lucide="check" class="text-sage-300 w-5 h-5"></i> Stress, fatigue, anxiety & sleep disorders</div>
+                          <div class="flex items-center gap-3"><i data-lucide="check" class="text-sage-300 w-5 h-5"></i> Hormonal imbalance, fertility & women’s wellness</div>
+                          <div class="flex items-center gap-3"><i data-lucide="check" class="text-sage-300 w-5 h-5"></i> Digestive, liver & detox-related conditions</div>
+                          <div class="flex items-center gap-3"><i data-lucide="check" class="text-sage-300 w-5 h-5"></i> Weight management & metabolic support</div>
+                          <div class="flex items-center gap-3"><i data-lucide="check" class="text-sage-300 w-5 h-5"></i> Skin, immunity & general wellness rejuvenation</div>
+                      </div>
+                    </div>
+
+                    <div class="mt-12 bg-white p-8 rounded-[2.5rem] border border-sage-100 shadow-sm">
+                      <h3 class="font-serif text-2xl text-sage-900 mb-6 font-bold uppercase tracking-tight">Areas of Specialized Care</h3>
+                      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-xs font-bold text-sage-700 uppercase tracking-widest">
+                        <div class="p-3 border-l-4 border-sage-400">Chronic pain & Musculoskeletal</div>
+                        <div class="p-3 border-l-4 border-sage-400">Stress & Sleep Imbalance</div>
+                        <div class="p-3 border-l-4 border-sage-400">Hormonal & Fertility</div>
+                        <div class="p-3 border-l-4 border-sage-400">Digestive & Metabolic</div>
+                        <div class="p-3 border-l-4 border-sage-400">Weight & Rejuvenation</div>
+                        <div class="p-3 border-l-4 border-sage-400">Immune Strengthening</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <button id="toggle-about" class="mt-8 text-sage-600 font-bold uppercase text-xs tracking-widest flex items-center gap-2 hover:text-sage-900 transition-all">
+                  <span id="toggle-text">Discover More</span>
+                  <i data-lucide="chevron-down" class="w-4 h-4 transition-transform duration-500" id="toggle-icon"></i>
+                </button>
+              </div>
+            </div>
+
+            <div class="reveal delay-200">
+              <div class="relative rounded-[5rem] overflow-hidden shadow-2xl h-[750px] border-8 border-white group">
+                <img src="https://images.unsplash.com/photo-1576765608535-5f04d1e3f289?q=80&w=1200&auto=format&fit=crop" alt="Compassionate Care Medical Personnel" class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105">
+                <div class="absolute inset-0 bg-gradient-to-t from-sage-900/30 to-transparent"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Contact Section -->
+      <section id="contact" class="py-24 bg-sage-600 text-cream-50 relative overflow-hidden">
+        <div class="container mx-auto px-6 md:px-12 relative z-10">
+          <div class="reveal text-center mb-16">
+            <h2 class="font-serif text-5xl mb-6 uppercase font-bold tracking-tight">Your Path to Healing Starts Here</h2>
+            <p class="max-w-2xl mx-auto font-light text-sage-100 text-lg">Speak with our specialists today and begin your personalized journey back to natural vitality.</p>
+          </div>
+
+          <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 max-w-6xl mx-auto">
+            <div class="bg-white/10 backdrop-blur-md rounded-[3.5rem] p-12 border border-white/20 reveal delay-100">
+              <h3 class="font-serif text-3xl mb-10 border-b border-white/10 pb-6 font-bold uppercase tracking-tight">Contact Details</h3>
+              <div class="space-y-10">
+                <div class="flex items-start gap-6">
+                  <div class="p-4 bg-white/10 rounded-2xl">
+                    <i data-lucide="map-pin" class="w-7 h-7 text-sage-300"></i>
+                  </div>
+                  <div>
+                    <h4 class="text-xs uppercase tracking-widest font-bold text-sage-300 mb-2">Our Location</h4>
+                    <p class="text-sm leading-relaxed max-w-xs">27a ilado street, Akenso Adexson Ile-epo Bus Stop, Igando LASU road Lagos Nigeria</p>
+                  </div>
+                </div>
+                <div class="flex items-start gap-6">
+                  <div class="p-4 bg-white/10 rounded-2xl">
+                    <i data-lucide="mail" class="w-7 h-7 text-sage-300"></i>
+                  </div>
+                  <div>
+                    <h4 class="text-xs uppercase tracking-widest font-bold text-sage-300 mb-2">Email Us</h4>
+                    <a href="mailto:PPerfecthealing@gamil.com" class="text-base hover:text-sage-300 transition-colors">PPerfecthealing@gamil.com</a>
+                  </div>
+                </div>
+                <div class="flex items-start gap-6">
+                  <div class="p-4 bg-white/10 rounded-2xl">
+                    <i data-lucide="phone" class="w-7 h-7 text-sage-300"></i>
+                  </div>
+                  <div>
+                    <h4 class="text-xs uppercase tracking-widest font-bold text-sage-300 mb-2">Speak With Us</h4>
+                    <p class="text-2xl font-bold font-serif">+234 907 153 6374</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="flex flex-col justify-center gap-8 reveal delay-200">
+              <div class="bg-white rounded-[3.5rem] p-12 shadow-2xl text-sage-900">
+                <h3 class="font-serif text-4xl mb-6 font-bold uppercase tracking-tight">Instant Consultation</h3>
+                <p class="text-sage-600 mb-12 text-lg leading-relaxed">Quickly enquire about treatments, check product availability, or book your therapeutic session instantly.</p>
+                <a href="https://wa.me/2349071536374" target="_blank" class="w-full py-6 bg-[#25D366] text-white rounded-full font-bold uppercase tracking-widest hover:bg-[#1ebc5a] transition-all flex items-center justify-center gap-4 shadow-xl transform hover:-translate-y-1">
+                  <i data-lucide="message-circle" class="w-7 h-7"></i> Chat on WhatsApp
+                </a>
+              </div>
+              <p class="text-center italic text-sage-200 text-sm">"The natural healing force within each of us is the greatest force in getting well." — Hippocrates</p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="bg-white py-20 border-t border-sage-100">
+      <div class="container mx-auto px-6 text-center">
+        <div class="h-20 w-20 rounded-full bg-sage-50 p-1 mb-8 border-2 border-sage-100 mx-auto overflow-hidden flex items-center justify-center opacity-60">
+            <img src="logo.png" class="w-full h-full object-cover rounded-full">
+        </div>
+        <h3 class="font-serif text-3xl text-sage-800 mb-2 font-bold uppercase tracking-tight">Perfect Healing Therapy Home</h3>
+        <p class="text-sage-500 text-xs uppercase tracking-[0.4em] mb-12 italic font-bold">Healing the Natural Way</p>
+        <p class="text-sage-300 text-[10px] uppercase tracking-[0.3em] font-bold">&copy; <span id="year"></span> Perfect Healing Therapy Home. All rights reserved.</p>
+      </div>
+    </footer>
+
+    <script>
+      lucide.createIcons();
+      document.getElementById('year').textContent = new Date().getFullYear();
+
+      const navbar = document.getElementById('navbar');
+      const navTexts = document.querySelectorAll('.nav-text');
+      const navLinks = document.querySelectorAll('.nav-link');
+      const logoBorder = document.querySelector('.logo-border');
+      const navCta = document.getElementById('nav-cta');
+
+      window.addEventListener('scroll', () => {
+        if (window.scrollY > 80) {
+          navbar.classList.add('bg-sage-600', 'shadow-2xl', 'py-3');
+          navbar.classList.remove('bg-transparent', 'py-4');
+          navTexts.forEach(el => el.classList.replace('text-sage-800', 'text-cream-50'));
+          navLinks.forEach(el => el.classList.replace('text-sage-800', 'text-cream-50'));
+          logoBorder.classList.replace('border-sage-800', 'border-cream-50');
+          navCta.classList.replace('bg-sage-600', 'bg-cream-50');
+          navCta.classList.replace('text-cream-50', 'text-sage-600');
+        } else {
+          navbar.classList.add('bg-transparent', 'py-4');
+          navbar.classList.remove('bg-sage-600', 'shadow-2xl', 'py-3');
+          navTexts.forEach(el => el.classList.replace('text-cream-50', 'text-sage-800'));
+          navLinks.forEach(el => el.classList.replace('text-cream-50', 'text-sage-800'));
+          logoBorder.classList.replace('border-cream-50', 'border-sage-800');
+          navCta.classList.replace('bg-cream-50', 'bg-sage-600');
+          navCta.classList.replace('text-sage-600', 'text-cream-50');
+        }
+      });
+
+      const menuBtn = document.getElementById('mobile-menu-btn');
+      const mobileMenu = document.getElementById('mobile-menu');
+      menuBtn.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
+
+      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+          if (this.getAttribute('href').startsWith('#')) {
+              e.preventDefault();
+              const target = document.querySelector(this.getAttribute('href'));
+              if (target) {
+                target.scrollIntoView({ behavior: 'smooth' });
+                mobileMenu.classList.add('hidden');
+              }
+          }
+        });
+      });
+
+      const filterBtns = document.querySelectorAll('.filter-btn');
+      const items = document.querySelectorAll('.product-item');
+      filterBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+          filterBtns.forEach(b => {
+            b.classList.remove('active', 'text-sage-900', 'border-sage-600');
+            b.classList.add('text-sage-400', 'border-transparent');
+          });
+          btn.classList.add('active', 'text-sage-900', 'border-sage-600');
+          btn.classList.remove('text-sage-400', 'border-transparent');
+          const cat = btn.getAttribute('data-category');
+          items.forEach(item => {
+            if (cat === 'all' || item.getAttribute('data-category') === cat) {
+              item.classList.remove('hidden-product');
+            } else {
+              item.classList.add('hidden-product');
+            }
+          });
+        });
+      });
+
+      document.querySelectorAll('.see-more-btn').forEach(btn => {
+        btn.addEventListener('click', function() {
+          const content = document.getElementById(this.getAttribute('data-target'));
+          const icon = this.querySelector('i');
+          const span = this.querySelector('span');
+          const isExp = content.classList.toggle('expanded');
+          span.textContent = isExp ? 'See Less' : 'See More';
+          icon.style.transform = isExp ? 'rotate(180deg)' : 'rotate(0deg)';
+        });
+      });
+
+      const toggleAboutBtn = document.getElementById('toggle-about');
+      const aboutMore = document.getElementById('about-more-content');
+      if (toggleAboutBtn) {
+        toggleAboutBtn.addEventListener('click', () => {
+          const isExp = aboutMore.classList.toggle('expanded');
+          document.getElementById('toggle-text').textContent = isExp ? 'Hide Details' : 'Discover More';
+          document.getElementById('toggle-icon').style.transform = isExp ? 'rotate(180deg)' : 'rotate(0deg)';
+        });
+      }
+
+      const obs = new IntersectionObserver((entries) => {
+        entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('active'); });
+      }, { threshold: 0.1 });
+      document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+    </script>
+  <script type="module" src="/index.tsx"></script>
+</body>
+</html>
